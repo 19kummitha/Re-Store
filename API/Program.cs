@@ -1,4 +1,5 @@
 using API.Data;
+using API.MiddleWare;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,9 +22,9 @@ builder.Services.AddCors(options =>
                   .AllowCredentials(); // Required if using authentication
         });
 });
-
+builder.Services.AddTransient<ExceptionMiddleWare>();
 var app = builder.Build();
-
+app.UseMiddleware<ExceptionMiddleWare>();
 app.UseCors("AllowFrontend");
 
 
