@@ -1,5 +1,7 @@
 using API.Data;
+using API.Entities;
 using API.MiddleWare;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,12 +25,22 @@ builder.Services.AddCors(options =>
         });
 });
 builder.Services.AddTransient<ExceptionMiddleWare>();
+builder.Services.AddIdentityApiEndpoints<User>(opt =>
+{
+    opt.User.RequireUniqueEmail = true;
+})
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<StoreContext>();
 var app = builder.Build();
 app.UseMiddleware<ExceptionMiddleWare>();
 app.UseCors("AllowFrontend");
-
+app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
-DbInitializer.InitDb(app);
+app.MapGroup("api").MapIdentityApi<User>(); // api/login
+app.MapFallbackToController("Index", "Fallback");
+await DbInitializer.InitDb(app);
 
 app.Run();
