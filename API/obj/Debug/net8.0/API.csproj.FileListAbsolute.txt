@@ -132,3 +132,8 @@ C:\Users\285072\Desktop\Udemy Certifications\dotnet\E-commerce\API\obj\Debug\net
 C:\Users\285072\Desktop\Udemy Certifications\dotnet\E-commerce\API\obj\Debug\net8.0\API.pdb
 C:\Users\285072\Desktop\Udemy Certifications\dotnet\E-commerce\API\obj\Debug\net8.0\API.genruntimeconfig.cache
 C:\Users\285072\Desktop\Udemy Certifications\dotnet\E-commerce\API\obj\Debug\net8.0\ref\API.dll
+C:\Users\285072\Desktop\Udemy Certifications\dotnet\E-commerce\API\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\285072\Desktop\Udemy Certifications\dotnet\E-commerce\API\bin\Debug\net8.0\Stripe.net.dll
+C:\Users\285072\Desktop\Udemy Certifications\dotnet\E-commerce\API\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+C:\Users\285072\Desktop\Udemy Certifications\dotnet\E-commerce\API\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\285072\Desktop\Udemy Certifications\dotnet\E-commerce\API\bin\Debug\net8.0\API.staticwebassets.runtime.json

@@ -1,6 +1,7 @@
 using API.Data;
 using API.Entities;
 using API.MiddleWare;
+using API.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,6 +26,8 @@ builder.Services.AddCors(options =>
         });
 });
 builder.Services.AddTransient<ExceptionMiddleWare>();
+builder.Services.AddScoped<PaymentsService>();
+builder.Services.AddScoped<DiscountService>();
 builder.Services.AddIdentityApiEndpoints<User>(opt =>
 {
     opt.User.RequireUniqueEmail = true;
@@ -34,6 +37,8 @@ builder.Services.AddIdentityApiEndpoints<User>(opt =>
 var app = builder.Build();
 app.UseMiddleware<ExceptionMiddleWare>();
 app.UseCors("AllowFrontend");
+app.UseDefaultFiles();
+app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();

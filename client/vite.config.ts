@@ -7,4 +7,8 @@ export default defineConfig({
     open: true,
   },
   plugins: [react()],
+  build: {
+    outDir: "../API/wwwroot", // This automatically places the build files in .NET's wwwroot
+    emptyOutDir: true, // Ensures old files are cleared before building
+  },
 });
